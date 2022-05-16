@@ -1,6 +1,6 @@
 ## gorm-generic
 
-泛型在 gorm 中的使用
+go generics use in gorm demo
 
 
 ### example
