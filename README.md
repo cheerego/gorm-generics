@@ -1,4 +1,4 @@
-## gorm-generic
+## gorm-generics
 
 go generics use in gorm demo
 

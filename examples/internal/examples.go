@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	gorm_generic "github.com/cheerego/gorm-generics"
+	"github.com/cheerego/gorm-generics"
 	"gorm.io/gorm"
 	"log"
 )
@@ -14,19 +14,19 @@ type Student struct {
 }
 
 type StudentRepository struct {
-	gorm_generic.BaseRepository[Student]
+	gorm_generics.BaseRepository[Student]
 	db *gorm.DB
 }
 
 func NewStudentRepository(db *gorm.DB) *StudentRepository {
 	return &StudentRepository{
-		BaseRepository: gorm_generic.NewBaseRepository[Student](db),
+		BaseRepository: gorm_generics.NewBaseRepository[Student](db),
 		db:             db,
 	}
 }
 func (s *StudentRepository) CustomQuery(ctx context.Context) (*Student, error) {
 	var m Student
-	err := gorm_generic.FromContext(ctx, s.db).First(&m, 1).Error
+	err := gorm_generics.FromContext(ctx, s.db).First(&m, 1).Error
 	if err != nil {
 		return nil, err
 	}
